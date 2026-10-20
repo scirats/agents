@@ -11,7 +11,7 @@
           "version": "0.1.0",
           "manifest": "developer/agent.toml",
           "artifact": "https://github.com/scirats/agents/releases/download/v0.1.0/developer-0.1.0.tar.gz",
-          "sha256": "43b50380a32826cc4bda31e4ca27092e502e7002d371e9595ae61818a2b3ba4a",
+          "sha256": "3fe4f3978e1947e56ca082a098746a12c2bd3d94236976d9552a9728e7a25988",
           "tags": [
             "code",
             "implementation"

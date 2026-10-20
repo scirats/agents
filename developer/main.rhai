@@ -2,7 +2,11 @@
 // file inside the agent sandbox.
 fn run(ctx) {
     let task = agent_task();
-    let readme = tools_workspace_read("README.md");
+    let readme = if tools_workspace_exists("README.md") {
+        tools_workspace_read("README.md")
+    } else {
+        ""
+    };
 
     let reply = agent_model(#{
         task: task,
