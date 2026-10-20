@@ -20,11 +20,11 @@ fn handle(ctx) {
     }
 
     if reply.tool_calls.len() > 0 {
-        for call in reply.tool_calls {
-            let result = execute_tool(call);
+        for tool in reply.tool_calls {
+            let result = execute_tool(tool);
             agent_emit(#{
                 type: "tool_result",
-                name: call.name,
+                name: tool.name,
                 result: result
             });
         }
@@ -51,9 +51,9 @@ fn handle(ctx) {
     }
 }
 
-fn execute_tool(call) {
-    let name = call.name;
-    let args = call.arguments;
+fn execute_tool(tool) {
+    let name = tool.name;
+    let args = tool.arguments;
     if name == "workspace.read" || name == "workspace_read" {
         return tools_workspace_read(args.path);
     }
