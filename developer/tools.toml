@@ -1,12 +1,19 @@
 [[tool]]
 name = "workspace.read"
-description = "Read a file from the current task worktree or read-only workspace docs."
+description = "Read a UTF-8 file from the current task worktree."
+parameters = { type = "object", properties = { path = { type = "string", description = "Relative path inside the worktree." } }, required = ["path"] }
+
 [[tool]]
 name = "workspace.write"
-description = "Write or patch a file inside the current task worktree."
+description = "Write a UTF-8 file inside the current task worktree."
+parameters = { type = "object", properties = { path = { type = "string", description = "Relative path inside the worktree." }, content = { type = "string", description = "Full file content." } }, required = ["path", "content"] }
+
 [[tool]]
 name = "artifact.write"
-description = "Write an artifact or report into the task artifacts directory."
+description = "Write a report or artifact into the task artifacts directory."
+parameters = { type = "object", properties = { path = { type = "string" }, content = { type = "string" } }, required = ["path", "content"] }
+
 [[tool]]
 name = "check.run"
-description = "Run a command from the workspace allowlist inside the sandbox and return stdout/stderr/exit code."
+description = "Run an allowlisted project command in the task worktree."
+parameters = { type = "object", properties = { command = { type = "string" } }, required = ["command"] }
