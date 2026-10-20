@@ -10,7 +10,6 @@ fn handle(ctx) {
     let summary = "";
     if reply.content != () {
         summary = reply.content;
-        tools_workspace_write("agent-output.md", summary);
     }
     #{
         summary: summary,

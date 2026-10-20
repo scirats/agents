@@ -39,10 +39,6 @@ fn handle(ctx) {
         }
     }
 
-    if summary != "" {
-        tools_workspace_write("agent-output.md", summary);
-    }
-
     #{
         summary: summary,
         events: [
