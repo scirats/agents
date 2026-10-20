@@ -10,7 +10,7 @@ PASS="${COSIGN_PASSWORD_FILE:-$HOME/.config/autodod/cosign.password}"
 OUT="$ROOT/dist"
 mkdir -p "$OUT"
 
-tar -C "$ROOT/plugins/developer/$VERSION" -czf "$OUT/developer-$VERSION.tar.gz" .
+tar -C "$ROOT/developer" -czf "$OUT/developer-$VERSION.tar.gz" .
 (cd "$OUT" && shasum -a 256 "developer-$VERSION.tar.gz" > SHA256SUMS)
 COSIGN_PASSWORD="$(cat "$PASS")" cosign sign-blob \
   --key "$KEY" \

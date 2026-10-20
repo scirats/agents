@@ -3,7 +3,8 @@ version = "0.1.0"
 name = "Developer"
 role = "developer"
 model = "deepseek-flash"
-entrypoint = "prompt.md"
+runtime = "rhai"
+entrypoint = "main.rhai"
 
 [capabilities]
 tools = ["workspace.read", "workspace.write", "artifact.write", "check.run"]

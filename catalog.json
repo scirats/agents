@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Autodo agents",
-  "plugins": [
+  "agents": [
     {
       "id": "developer",
       "name": "Developer",
@@ -9,9 +9,9 @@
       "versions": [
         {
           "version": "0.1.0",
-          "manifest": "plugins/developer/0.1.0/plugin.toml",
+          "manifest": "developer/agent.toml",
           "artifact": "https://github.com/scirats/agents/releases/download/v0.1.0/developer-0.1.0.tar.gz",
-          "sha256": "60ad39a2181219f84956d71f303e22b7c5d79ffa4995594b33cdf55947538d65",
+          "sha256": "0ddc412db49a47980f44285f13f82cebc47664e6c261e867e2cf90b92167e3ca",
           "tags": [
             "code",
             "implementation"

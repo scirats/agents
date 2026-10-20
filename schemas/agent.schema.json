@@ -1,14 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Autodod agent plugin manifest",
+  "title": "Autodod agent manifest",
   "type": "object",
-  "required": ["id", "version", "name", "role", "model", "entrypoint"],
+  "required": ["id", "version", "name", "role", "model", "runtime", "entrypoint"],
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
     "name": { "type": "string" },
     "role": { "type": "string" },
     "model": { "type": "string" },
+    "runtime": { "type": "string", "enum": ["rhai"] },
     "entrypoint": { "type": "string" },
     "capabilities": {
       "type": "object",
