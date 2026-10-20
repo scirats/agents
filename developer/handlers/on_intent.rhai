@@ -20,6 +20,7 @@ fn handle(ctx) {
     }
 
     if reply.tool_calls.len() > 0 {
+        let used_tools = "";
         for tool in reply.tool_calls {
             let result = execute_tool(tool);
             agent_emit(#{
@@ -27,10 +28,12 @@ fn handle(ctx) {
                 name: tool.name,
                 result: result
             });
+            used_tools += tool.name + " ";
         }
-        let followup = agent_model(#{
-            messages: [
-                #{ role: "user", content: prompt },
+        summary = "Executed tools: " + used_tools;
+    }
+
+    #{ role: "user", content: prompt },
                 #{ role: "user", content: "The requested tools were executed. Return the final summary." }
             ]
         });
