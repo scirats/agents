@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "Autodo agents",
+  "plugins": [
+    {
+      "id": "developer",
+      "name": "Developer",
+      "description": "Implements a task in a workspace worktree and produces reviewable artifacts.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "manifest": "plugins/developer/0.1.0/plugin.toml",
+          "artifact": "https://github.com/scirats/agents/releases/download/v0.1.0/developer-0.1.0.tar.gz",
+          "sha256": "__PENDING__",
+          "tags": ["code", "implementation"],
+          "model": "deepseek-flash"
+        }
+      ]
+    }
+  ]
+}

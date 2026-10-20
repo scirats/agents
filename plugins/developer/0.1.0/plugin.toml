@@ -1,0 +1,16 @@
+id = "developer"
+version = "0.1.0"
+name = "Developer"
+role = "developer"
+model = "deepseek-flash"
+entrypoint = "prompt.md"
+
+[capabilities]
+tools = ["workspace.read", "workspace.write", "artifact.write", "check.run"]
+filesystem = ["workspace/docs:ro", "workspace/worktree:rw", "artifacts:rw"]
+
+[limits]
+timeout_seconds = 1800
+max_tokens = 200000
+memory_mb = 2048
+pids = 256

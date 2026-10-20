@@ -1,0 +1,12 @@
+[[tool]]
+name = "workspace.read"
+description = "Read a file from the current task worktree or read-only workspace docs."
+[[tool]]
+name = "workspace.write"
+description = "Write or patch a file inside the current task worktree."
+[[tool]]
+name = "artifact.write"
+description = "Write an artifact or report into the task artifacts directory."
+[[tool]]
+name = "check.run"
+description = "Run a command from the workspace allowlist inside the sandbox and return stdout/stderr/exit code."
