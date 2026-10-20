@@ -7,20 +7,31 @@ fn handle(ctx) {
     }
 
     let prompt = "Task: " + task.title + "\n\n" + task.spec + "\n\nWorkspace notes:\n" + readme;
-    let reply = agent_model(#{
-        messages: [
-            #{ role: "user", content: prompt }
-        ],
-        tools: intent.tools
-    });
-
+    let messages = [
+        #{ role: "user", content: prompt }
+    ];
     let summary = "";
-    if reply.content != () {
-        summary = reply.content;
-    }
+    let step = 0;
 
-    if reply.tool_calls.len() > 0 {
-        let used_tools = "";
+    while step < 8 {
+        let reply = agent_model(#{
+            messages: messages,
+            tools: intent.tools
+        });
+
+        if reply.tool_calls.len() == 0 {
+            if reply.content != () {
+                summary = reply.content;
+            }
+            break;
+        }
+
+        messages.push(#{
+            role: "assistant",
+            content: reply.content,
+            tool_calls: reply.tool_calls
+        });
+
         for tool in reply.tool_calls {
             let result = execute_tool(tool);
             agent_emit(#{
@@ -28,9 +39,17 @@ fn handle(ctx) {
                 name: tool.name,
                 result: result
             });
-            used_tools += tool.name + " ";
+            messages.push(#{
+                role: "tool",
+                tool_call_id: tool.id,
+                content: result
+            });
         }
-        summary = "Executed tools: " + used_tools;
+        step += 1;
+    }
+
+    if summary == "" {
+        summary = "Executed agent tools.";
     }
 
     #{
@@ -49,14 +68,14 @@ fn execute_tool(tool) {
     }
     if name == "workspace_write" {
         tools_workspace_write(args.path, args.content);
-        return #{ status: "ok" };
+        return "ok";
     }
     if name == "artifact_write" {
         tools_artifact_write(args.path, args.content);
-        return #{ status: "ok" };
+        return "ok";
     }
     if name == "check_run" {
         return tools_check_run(args.command);
     }
-    return #{ status: "unknown_tool", name: name };
+    return "unknown tool: " + name;
 }
