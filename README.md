@@ -3,8 +3,9 @@
 Signed catalog of external agents for Autodod.
 
 - `catalog.json` is the index read by the Autodod daemon and the app.
-- Agents live directly under this repository: `developer/`, and future agents
-  alongside it. There are no version folders and no `plugins/` directory.
+- Agents live directly under this repository: `developer/`, `reviewer/` and
+  `tester/`, and future agents alongside them. There are no version folders and
+  no `plugins/` directory.
 - Agent versions are metadata in `agent.toml` and `catalog.json`; release
   artifacts are GitHub assets.
 - Every release is signed with cosign; the public key is in `keys/cosign.pub`.

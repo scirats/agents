@@ -32,6 +32,42 @@
           "public_key": "https://raw.githubusercontent.com/scirats/agents/master/keys/cosign.pub"
         }
       ]
+    },
+    {
+      "id": "reviewer",
+      "name": "Reviewer",
+      "description": "Reviews the current work, runs allowed checks and writes a review report without editing the worktree.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "artifact": "https://github.com/scirats/agents/releases/download/v0.1.2/reviewer-0.1.0.tar.gz",
+          "sha256": "c746f40845bccb59d575609480733a5b7c6441dbd885f6f89bb15ab8cdeefcec",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "tags": [
+            "review",
+            "quality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tester",
+      "name": "Tester",
+      "description": "Runs authorized checks and writes a deterministic test report without editing application code.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "artifact": "https://github.com/scirats/agents/releases/download/v0.1.2/tester-0.1.0.tar.gz",
+          "sha256": "270fa5ae352ab66020396d1ac4cf1856f755fadc77c8ba200c529846abc2dd93",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "tags": [
+            "testing",
+            "quality"
+          ]
+        }
+      ]
     }
   ]
 }
