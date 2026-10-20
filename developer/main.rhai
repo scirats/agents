@@ -9,10 +9,8 @@ fn run(ctx) {
         context: readme,
     });
 
-    if reply.tool_calls.len() > 0 {
-        for tool_call in reply.tool_calls {
-            tools_dispatch(tool_call);
-        }
+    if reply.content != () {
+        tools_workspace_write("agent-output.md", reply.content);
     }
 
     #{
