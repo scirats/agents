@@ -1,0 +1,14 @@
+[[tool]]
+name = "workspace_read"
+description = "Read a UTF-8 file from the current task worktree."
+parameters = { type = "object", properties = { path = { type = "string", description = "Relative path inside the worktree." } }, required = ["path"] }
+
+[[tool]]
+name = "artifact_write"
+description = "Write a test report into the task artifacts directory."
+parameters = { type = "object", properties = { path = { type = "string" }, content = { type = "string" } }, required = ["path", "content"] }
+
+[[tool]]
+name = "check_run"
+description = "Run an allowlisted project command in the task worktree."
+parameters = { type = "object", properties = { command = { type = "string" } }, required = ["command"] }

@@ -1,0 +1,28 @@
+id = "reviewer"
+version = "0.1.0"
+name = "Reviewer"
+role = "reviewer"
+provider = "deepseek"
+model = "deepseek-flash"
+runtime = "rhai"
+contract = "autodo.agent/v1"
+
+[handlers]
+on_intent = "handlers/on_intent.rhai"
+on_tool_result = "handlers/on_tool_result.rhai"
+on_stage_failed = "handlers/on_stage_failed.rhai"
+on_stage_rework = "handlers/on_stage_rework.rhai"
+on_approval = "handlers/on_approval.rhai"
+on_cancel = "handlers/on_cancel.rhai"
+on_resume = "handlers/on_resume.rhai"
+on_complete = "handlers/on_complete.rhai"
+
+[capabilities]
+tools = ["workspace_read", "artifact_write", "check_run"]
+filesystem = ["workspace/docs:ro", "workspace/worktree:ro", "artifacts:rw"]
+
+[limits]
+timeout_seconds = 1800
+max_tokens = 200000
+memory_mb = 2048
+pids = 256

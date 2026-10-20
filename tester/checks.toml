@@ -1,0 +1,9 @@
+[output]
+require_summary = true
+require_checks = true
+require_artifacts = true
+
+[[check]]
+name = "allowed_commands"
+type = "command_allowlist"
+description = "Only commands declared by the workspace policy may run."
