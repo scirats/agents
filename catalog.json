@@ -16,7 +16,10 @@
             "code",
             "implementation"
           ],
-          "model": "deepseek-flash"
+          "model": "deepseek-flash",
+          "checksums": "https://github.com/scirats/agents/releases/download/v0.1.0/SHA256SUMS",
+          "signature": "https://github.com/scirats/agents/releases/download/v0.1.0/SHA256SUMS.bundle",
+          "public_key": "https://raw.githubusercontent.com/scirats/agents/master/keys/cosign.pub"
         }
       ]
     }
