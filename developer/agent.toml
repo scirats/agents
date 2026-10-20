@@ -18,7 +18,7 @@ on_resume = "handlers/on_resume.rhai"
 on_complete = "handlers/on_complete.rhai"
 
 [capabilities]
-tools = ["workspace.read", "workspace.write", "artifact.write", "check.run"]
+tools = ["workspace_read", "workspace_write", "artifact_write", "check_run"]
 filesystem = ["workspace/docs:ro", "workspace/worktree:rw", "artifacts:rw"]
 
 [limits]
