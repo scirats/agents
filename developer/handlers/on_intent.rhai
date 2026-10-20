@@ -67,12 +67,10 @@ fn execute_tool(tool) {
         return tools_workspace_read(args.path);
     }
     if name == "workspace_write" {
-        tools_workspace_write(args.path, args.content);
-        return "ok";
+        return tools_workspace_write(args.path, args.content);
     }
     if name == "artifact_write" {
-        tools_artifact_write(args.path, args.content);
-        return "ok";
+        return tools_artifact_write(args.path, args.content);
     }
     if name == "check_run" {
         return tools_check_run(args.command);
