@@ -13,7 +13,7 @@ fn handle(ctx) {
     let summary = "";
     let step = 0;
 
-    while step < 8 {
+    while step < 12 {
         let reply = agent_model(#{
             messages: messages,
             tools: intent.tools
@@ -48,6 +48,14 @@ fn handle(ctx) {
         step += 1;
     }
 
+    if summary == "" {
+        let final_reply = agent_model(#{
+            messages: messages
+        });
+        if final_reply.content != () {
+            summary = final_reply.content;
+        }
+    }
     if summary == "" {
         summary = "Executed agent tools.";
     }
