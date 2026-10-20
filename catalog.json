@@ -11,8 +11,11 @@
           "version": "0.1.0",
           "manifest": "plugins/developer/0.1.0/plugin.toml",
           "artifact": "https://github.com/scirats/agents/releases/download/v0.1.0/developer-0.1.0.tar.gz",
-          "sha256": "__PENDING__",
-          "tags": ["code", "implementation"],
+          "sha256": "60ad39a2181219f84956d71f303e22b7c5d79ffa4995594b33cdf55947538d65",
+          "tags": [
+            "code",
+            "implementation"
+          ],
           "model": "deepseek-flash"
         }
       ]
