@@ -8,6 +8,16 @@
       "description": "Implements a task in a workspace worktree and produces reviewable artifacts.",
       "versions": [
         {
+          "version": "0.1.1",
+          "artifact": "https://github.com/scirats/agents/releases/download/v0.1.1/developer-0.1.1.tar.gz",
+          "sha256": "bee752512cb21db607f1d0746966cdc8ea32db0abbea2278a293d9951cca59af",
+          "model": "deepseek-flash",
+          "tags": [
+            "coding",
+            "workspace"
+          ]
+        },
+        {
           "version": "0.1.0",
           "manifest": "developer/agent.toml",
           "artifact": "https://github.com/scirats/agents/releases/download/v0.1.0/developer-0.1.0.tar.gz",
